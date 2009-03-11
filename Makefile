@@ -7,10 +7,11 @@ ifeq ($(WITHOUT_XATTR), 1)
   CPPFLAGS += -DWITHOUT_XATTR
 endif
 
-SUBDIRS = mkfs.ubifs ubi-utils
+#SUBDIRS = mkfs.ubifs ubi-utils
+SUBDIRS =
 
 TARGETS = ftl_format flash_erase flash_eraseall nanddump doc_loadbios \
-	ftl_check mkfs.jffs2 flash_lock flash_unlock flash_info \
+	ftl_check flash_lock flash_unlock flash_info \
 	flash_otp_info flash_otp_dump mtd_debug flashcp nandwrite nandtest \
 	jffs2dump \
 	nftldump nftl_format docfdisk \
