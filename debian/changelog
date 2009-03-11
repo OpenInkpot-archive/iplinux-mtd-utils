@@ -1,3 +1,9 @@
+mtd-utils (20090217-1.oi1) asimov; urgency=low
+
+  * OI port
+
+ -- Yauhen Kharuzhy <jekhor@gmail.com>  Wed, 11 Mar 2009 15:35:09 +0200
+
 mtd-utils (20090217-1) unstable; urgency=low
 
   [ Riku Voipio ]
