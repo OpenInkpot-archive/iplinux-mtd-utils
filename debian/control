@@ -1,5 +1,5 @@
 Source: mtd-utils
-Section: utils
+Section: core
 Priority: extra
 Maintainer: Yauhen Kharuzhy <jekhor@gmail.com>
 Build-Depends: debhelper (>= 5.0), zlib1g-dev, libacl1-dev, liblzo2-dev, uuid-dev
