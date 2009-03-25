@@ -5,8 +5,6 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-CC = $(DEB_HOST_GNU_ARCH)-gcc
-
 # This is the debhelper compatability version to use.
 
 build: build-stamp
@@ -35,7 +33,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/tmp.
-	$(MAKE) install DESTDIR=`pwd`/debian/mtd-utils
+	$(MAKE) CC=$(DEB_HOST_GNU_TYPE)-gcc install DESTDIR=`pwd`/debian/mtd-utils
 	#for each in $(shell file util/*|grep ELF.*executable|sed 's/:.*//'); do \
 	#  install $$each debian/tmp/usr/bin/; \
 	#done
