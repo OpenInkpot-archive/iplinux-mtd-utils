@@ -5,6 +5,8 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+CC = $(DEB_HOST_GNU_ARCH)-gcc
+
 # This is the debhelper compatability version to use.
 
 build: build-stamp
