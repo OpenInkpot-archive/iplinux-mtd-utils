@@ -1,17 +1,12 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
 
-# Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
-
-# This is the debhelper compatability version to use.
 
 build: build-stamp
 build-stamp:
 	dh_testdir
-	
-	# skip building here since make install will make anyway
+
+# skip building here since make install will make anyway
 #	$(MAKE) 
 
 	touch build-stamp
@@ -21,7 +16,6 @@ clean:
 	dh_testroot
 	rm -f build-stamp
 
-	# Add here commands to clean up after the build process.
 	[ -f Makefile ] && $(MAKE) clean
 
 	dh_clean
@@ -32,30 +26,18 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	# Add here commands to install the package into debian/tmp.
-	$(MAKE) CC=$(DEB_HOST_GNU_TYPE)-gcc install DESTDIR=`pwd`/debian/mtd-utils
-	#for each in $(shell file util/*|grep ELF.*executable|sed 's/:.*//'); do \
-	#  install $$each debian/tmp/usr/bin/; \
-	#done
+	$(MAKE) CFLAGS="-DWITHOUT_XATTR" CC=$(DEB_HOST_GNU_TYPE)-gcc install DESTDIR=$(CURDIR)/debian/mtd-utils
+	rm -rf $(CURDIR)/debian/mtd-utils/usr/share
 
-
-# Build architecture-independent files here.
 binary-indep: build install
-# We have nothing to do by default.
 
-# Build architecture-dependent files here.
 binary-arch: build install
 	dh_testdir
 	dh_testroot
-#	dh_installdocs
-#	dh_installexamples
-#	dh_installman
-#	dh_installchangelogs 
 	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
-	# You may want to make some executables suid here.
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
