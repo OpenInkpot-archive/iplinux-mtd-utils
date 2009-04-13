@@ -1,3 +1,10 @@
+mtd-utils (20090217-5) asimov; urgency=low
+
+  * Change section in debian/control: XCS-Cross-Mode: both works only for
+    host/tools packages.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 14 Apr 2009 02:18:39 +0700
+
 mtd-utils (20090217-4) asimov; urgency=low
 
   * Fixed section for host packages (used to be 'core').
