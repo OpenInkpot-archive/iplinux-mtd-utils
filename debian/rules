@@ -40,6 +40,11 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir
 	dh_testroot
+ifeq (,$(filter target,$(DEB_BUILD_OPTIONS)))
+	sed -ie 's,Section: core,Section: host/tools,' $(CURDIR)/debian/control
+else
+	sed -ie 's,Section: host/tools,Section: core,' $(CURDIR)/debian/control
+endif
 	dh_link
 	dh_strip
 	dh_compress
