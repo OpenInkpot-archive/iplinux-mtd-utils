@@ -2,6 +2,12 @@
 
 #export DH_VERBOSE=1
 
+ifneq (,$(filter target,$(DEB_BUILD_OPTIONS)))
+	CC=$(DEB_HOST_GNU_TYPE)-gcc
+else
+	CC=gcc
+endif
+
 build: build-stamp
 build-stamp:
 	dh_testdir
@@ -26,7 +32,7 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	$(MAKE) CFLAGS="-DWITHOUT_XATTR" CC=$(DEB_HOST_GNU_TYPE)-gcc install DESTDIR=$(CURDIR)/debian/mtd-utils
+	$(MAKE) CFLAGS="-DWITHOUT_XATTR" CC=$(CC) install DESTDIR=$(CURDIR)/debian/mtd-utils
 	rm -rf $(CURDIR)/debian/mtd-utils/usr/share
 
 binary-indep: build install

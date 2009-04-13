@@ -5,6 +5,7 @@ Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
 Build-Depends: debhelper (>= 5.0), zlib1g-dev, liblzo2-dev, uuid-dev
 XCS-Cross-Host-Build-Depends: debhelper (>= 5.0)
 XCS-Cross-Build-Depends: libz1-dev, liblzo2-dev, uuid-dev
+XCS-Cross-Mode: both
 Standards-Version: 3.8.0
 Homepage: http://www.linux-mtd.infradead.org/
 
