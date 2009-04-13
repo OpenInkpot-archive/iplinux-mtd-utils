@@ -1,5 +1,5 @@
 Source: mtd-utils
-Section: core
+Section: host/tools
 Priority: extra
 Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
 Build-Depends: debhelper (>= 5.0), zlib1g-dev, liblzo2-dev, uuid-dev
